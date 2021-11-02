@@ -1,17 +1,18 @@
-const {Schema, model} = require('mongoose');
+import * as mongoose from 'mongoose';
+import {IPromocode} from "./Promocode";
 
 // Steam interfaces
-interface SteamInventoryItem {
+interface ISteamInventoryItem {
     id: string,
     hashName: string,
     price: string
 }
 
-interface SteamProfileGame {
+interface ISteamProfileGame {
 
 }
 
-interface Steam {
+interface ISteam {
     nickname: string,
     level: number,
     image: string,
@@ -20,38 +21,32 @@ interface Steam {
     email: string,
     password: string,
     balance: string,
-    inventory: [SteamInventoryItem],
-    games: [SteamProfileGame]
+    inventory: [ISteamInventoryItem],
+    games: [ISteamProfileGame]
 }
 
 // CSGORUN interfaces
-interface RunInventoryItem {
+interface IRunInventoryItem {
 
 }
 
-interface RunPromocode {
-    text: string,
-    active: boolean,
-    timestamp: Date
-}
-
-interface Run {
+interface IRun {
     balance: string,
     token: string,
     state: boolean,
     betState: boolean,
-    items: [RunInventoryItem],
-    promocodes: [RunPromocode]
+    items: [IRunInventoryItem],
+    promocodes: [IPromocode]
 }
 
-interface User {
+interface IUser {
     username: string,
     proxy: string,
     userAgent: string,
-    steam: Steam,
-    run: Run
+    steam: ISteam,
+    run: IRun
 }
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
 
 })
