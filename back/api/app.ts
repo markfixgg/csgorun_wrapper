@@ -1,5 +1,22 @@
-import Promocode from "../models/Promocode";
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
 
-module.exports = async () => {
+const {SERVER_PORT} = require('../config');
 
+const app = express();
+
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+require('./routes')(app);
+
+module.exports = {
+    start: async () => {
+        app.listen(SERVER_PORT, () => console.log(`Server started on port: ${SERVER_PORT}!`))
+    },
+    stop: async () => {
+
+    }
 }

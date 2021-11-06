@@ -35,14 +35,35 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 (function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: 
             // Connect to database
-            return [4 /*yield*/, require('./modules/database').connect()];
+            // await require('./modules/database').connect();
+            // const api = new RunApi({user: {username: 'test'}});
+            //
+            // const response = await api.request({
+            //     url: 'https://6182de8791d76c00172d16af.mockapi.io/api/v1/exampleApi'
+            // })
+            //     .catch(e => ({success: false, error: e.message}))
+            //
+            // console.log(response);
+            // Init server
+            return [4 /*yield*/, require('./api/app').start()];
             case 1:
                 // Connect to database
+                // await require('./modules/database').connect();
+                // const api = new RunApi({user: {username: 'test'}});
+                //
+                // const response = await api.request({
+                //     url: 'https://6182de8791d76c00172d16af.mockapi.io/api/v1/exampleApi'
+                // })
+                //     .catch(e => ({success: false, error: e.message}))
+                //
+                // console.log(response);
+                // Init server
                 _a.sent();
                 return [2 /*return*/];
         }

@@ -8,43 +8,51 @@ interface ISteamInventoryItem {
     price: string
 }
 
-interface ISteamProfileGame {
+interface ISteamGameItem {
 
 }
 
-interface ISteam {
-    nickname: string,
-    level: number,
-    image: string,
-    secretKey: string,
-    sharedKey: string,
-    email: string,
-    password: string,
-    balance: string,
-    inventory: [ISteamInventoryItem],
-    games: [ISteamProfileGame]
+export interface ISteam {
+    nickname?: string,
+    level?: number,
+    image?: string,
+    secretKey?: string,
+    sharedKey?: string,
+    email?: string,
+    password?: string,
+    balance?: string,
+    inventory?: ISteamInventoryItem[],
+    games?: ISteamGameItem[]
 }
 
 // CSGORUN interfaces
-interface IRunInventoryItem {
-
+export interface IRunInventoryItem {
+    id: number;
+    price?: number;
+    itemId?: number;
+    name?: string;
+    entity?: string;
+    description?: string;
+    qualityId?: number;
+    colorId?: number;
+    isSlowWithdraw?: boolean;
 }
 
-interface IRun {
-    balance: string,
-    token: string,
-    state: boolean,
-    betState: boolean,
-    items: [IRunInventoryItem],
-    promocodes: [IPromocode]
+export interface IRun {
+    balance?: string,
+    token?: string,
+    state?: boolean,
+    betState?: boolean,
+    items?: IRunInventoryItem[],
+    promocodes?: IPromocode[]
 }
 
-interface IUser {
+export interface IUser {
     username: string,
-    proxy: string,
-    userAgent: string,
-    steam: ISteam,
-    run: IRun
+    proxy?: string,
+    userAgent?: string,
+    steam?: ISteam,
+    run?: IRun
 }
 
 const userSchema = new mongoose.Schema({

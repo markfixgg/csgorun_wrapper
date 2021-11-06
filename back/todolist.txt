@@ -1,0 +1,11 @@
+TODO:
+    Steam Authorization Service
+
+TODO:
+    GraphQL Integration
+
+TODO:
+    CsgoRun api methods
+        - withdraw
+        - deposit
+        - authorization
