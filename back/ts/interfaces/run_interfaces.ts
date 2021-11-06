@@ -65,9 +65,9 @@ export interface IRunBet {
                 colorId: number;
             }[];
         };
-        withdraw: {
+        withdraw?: {
             amount?: any;
-            items: any[];
+            items?: any[];
         };
         user: {
             id: number;
