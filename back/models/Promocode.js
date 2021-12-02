@@ -23,6 +23,7 @@ var mongoose = __importStar(require("mongoose"));
 var promocodeSchema = new mongoose.Schema({
     text: { type: String, required: true },
     active: { type: Boolean, default: false },
+    amount: { type: Number, default: null },
     timestamp: { type: Date, required: true }
 });
 exports.default = mongoose.model('Promocode', promocodeSchema);

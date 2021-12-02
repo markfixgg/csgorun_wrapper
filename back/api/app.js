@@ -51,7 +51,7 @@ require('./routes')(app);
 module.exports = {
     start: function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            app.listen(SERVER_PORT, function () { return console.log("Server started on port: " + SERVER_PORT + "!"); });
+            app.listen(SERVER_PORT, function () { return console.log("[INFO] Server started on port: " + SERVER_PORT + "!"); });
             return [2 /*return*/];
         });
     }); },

@@ -41,28 +41,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
         switch (_a.label) {
             case 0: 
             // Connect to database
-            // await require('./modules/database').connect();
-            // const api = new RunApi({user: {username: 'test'}});
-            //
-            // const response = await api.request({
-            //     url: 'https://6182de8791d76c00172d16af.mockapi.io/api/v1/exampleApi'
-            // })
-            //     .catch(e => ({success: false, error: e.message}))
-            //
-            // console.log(response);
-            // Init server
-            return [4 /*yield*/, require('./api/app').start()];
+            return [4 /*yield*/, require('./modules/database').connect()];
             case 1:
                 // Connect to database
-                // await require('./modules/database').connect();
-                // const api = new RunApi({user: {username: 'test'}});
-                //
-                // const response = await api.request({
-                //     url: 'https://6182de8791d76c00172d16af.mockapi.io/api/v1/exampleApi'
-                // })
-                //     .catch(e => ({success: false, error: e.message}))
-                //
-                // console.log(response);
+                _a.sent();
+                // Init server
+                return [4 /*yield*/, require('./api/app').start()];
+            case 2:
                 // Init server
                 _a.sent();
                 return [2 /*return*/];

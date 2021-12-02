@@ -39,57 +39,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var RunApi_1 = __importDefault(require("./modules/RunApi"));
-var steamcommunity_1 = __importDefault(require("steamcommunity"));
+var controllers_1 = __importDefault(require("./controllers"));
 module.exports = function (app) {
-    app.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var api, balance;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    api = new RunApi_1.default({
-                        user: {
-                            username: 'markfix'
-                        }
-                    });
-                    return [4 /*yield*/, api.discount({
-                            code: 'test'
-                        })];
-                case 1:
-                    balance = _a.sent();
-                    res.send(balance);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
+    app.get('/accounts', controllers_1.default.AccountsCtrl.getAll);
+    app.get('/accounts/:_id', controllers_1.default.AccountsCtrl.get);
+    app.post('/accounts', controllers_1.default.AccountsCtrl.create);
+    app.delete('/accounts/:_id', controllers_1.default.AccountsCtrl.delete);
     app.post('/authenticate', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var _a, accountName, password, authCode, twoFactorCode, community;
+        var _a, accountName, password, authCode, twoFactorCode;
         return __generator(this, function (_b) {
             _a = req.body, accountName = _a.accountName, password = _a.password, authCode = _a.authCode, twoFactorCode = _a.twoFactorCode;
-            community = new steamcommunity_1.default();
-            // const response = await new Promise((resolve, reject) => {
-            //     community.login({
-            //         accountName,
-            //         password,
-            //         authCode,
-            //         twoFactorCode
-            //     }, ((err, sessionID, cookies, steamguard, oAuthToken) => {
-            //         if(err) reject(err)
-            //         resolve({sessionID, cookies, steamguard, oAuthToken})
-            //     }));
-            // }).catch(err => err.toString())
-            community.setCookies([
-                "Steam_Language=english",
-                "timezoneOffset=0,0",
-                "steamCountry=UA%7C7153754013df815dda3f797c0d0f0e76",
-                "steamMachineAuth76561198420960878=666796324663125386676E3E49C1DED28ECD23AD",
-                "steamLoginSecure=76561198420960878%7C%7CB1BD6A61AF6790B175FCE9D651B4C4F0214708F6",
-                "sessionid=63d76d1cfc66bc85c79490b0"
-            ]);
-            //@ts-ignore
-            community.editProfile({ summary: "{\"description\": \"...\"}\n\nWingMan\nGLOBAL ELITE 10.06.21" }, function () {
-                res.send('ok');
-            });
+            res.send('ok');
             return [2 /*return*/];
         });
     }); });

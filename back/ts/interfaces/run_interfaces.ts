@@ -1,4 +1,4 @@
-import {IRunInventoryItem} from "../../models/User";
+import {IRunInventoryItem} from "../../models/Account";
 
 export interface IRunCurrentState {
     data?: {
@@ -78,6 +78,16 @@ export interface IRunBet {
         };
         likes: number;
     };
+}
+
+export interface IRunDiscount {
+    success: boolean;
+    error?: string,
+    date: Date;
+    data?: {
+        balance?: number;
+        added?: number;
+    }
 }
 
 

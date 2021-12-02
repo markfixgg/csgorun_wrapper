@@ -14,7 +14,7 @@ require('./routes')(app);
 
 module.exports = {
     start: async () => {
-        app.listen(SERVER_PORT, () => console.log(`Server started on port: ${SERVER_PORT}!`))
+        app.listen(SERVER_PORT, () => console.log(`[INFO] Server started on port: ${SERVER_PORT}!`))
     },
     stop: async () => {
 

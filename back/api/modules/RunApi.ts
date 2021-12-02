@@ -1,15 +1,15 @@
-import {IRunInventoryItem, IUser} from "../../models/User";
+import {IRunInventoryItem, IAccount} from "../../models/Account";
 import request from "request-promise-native";
 //@ts-ignore
 import UserAgent from 'user-agents';
-import {IRunBet, IRunCurrentState, IRunExchange} from "../../ts/interfaces/run_interfaces";
+import {IRunBet, IRunCurrentState, IRunDiscount, IRunExchange} from "../../ts/interfaces/run_interfaces";
 
 class RunApi {
-    private run_url: string;
-    private api_run_url: string;
-    user: IUser;
+    private readonly run_url: string;
+    private readonly api_run_url: string;
+    private readonly user: IAccount;
 
-    constructor({user}: {user: IUser}) {
+    constructor({user}: {user: IAccount}) {
         this.user = user;
         this.run_url= `https://csgorun.gg`;
         this.api_run_url = `https://api.csgorun.gg`;
@@ -60,7 +60,7 @@ class RunApi {
         return currentState.data?.paymentMethods;
     }
 
-    async discount({code}: {code: string}) {
+    async discount({code}: {code: string}): Promise<IRunDiscount> {
         return this.request({
             url: `${this.api_run_url}/discount`,
             method: "POST",
